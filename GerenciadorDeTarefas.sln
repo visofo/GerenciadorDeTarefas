@@ -1,0 +1,63 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{AD38E879-E2BF-49A7-AABB-E34587D58FEB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GerenciadorDeTarefas.Application", "src\GerenciadorDeTarefas.Application\GerenciadorDeTarefas.Application.csproj", "{3CA5FF95-71C7-414E-A323-E6A325C26AED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GerenciadorDeTarefas.Domain", "src\GerenciadorDeTarefas.Domain\GerenciadorDeTarefas.Domain.csproj", "{A9C298BE-4FD3-49F2-B802-80CCEA412A30}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GerenciadorDeTarefas.Infrastructure", "src\GerenciadorDeTarefas.Infrastructure\GerenciadorDeTarefas.Infrastructure.csproj", "{85D3002B-90A4-483C-965E-5DB9B0F21E0A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Itens de Solução", "Itens de Solução", "{65C649E4-AC62-4CB5-94A8-A444D1538D1D}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GerenciadorDeTarefas.API", "src\GerenciadorDeTarefas.API\GerenciadorDeTarefas.API.csproj", "{813C4E24-75CD-4562-A73A-4794FC891A25}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "gerenciadordetarefas.web", "src\gerenciadordetarefas.web\gerenciadordetarefas.web.esproj", "{79BA5D5C-FFE7-4906-BD56-208F450EB754}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3CA5FF95-71C7-414E-A323-E6A325C26AED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CA5FF95-71C7-414E-A323-E6A325C26AED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CA5FF95-71C7-414E-A323-E6A325C26AED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CA5FF95-71C7-414E-A323-E6A325C26AED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9C298BE-4FD3-49F2-B802-80CCEA412A30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9C298BE-4FD3-49F2-B802-80CCEA412A30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9C298BE-4FD3-49F2-B802-80CCEA412A30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9C298BE-4FD3-49F2-B802-80CCEA412A30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85D3002B-90A4-483C-965E-5DB9B0F21E0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85D3002B-90A4-483C-965E-5DB9B0F21E0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85D3002B-90A4-483C-965E-5DB9B0F21E0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85D3002B-90A4-483C-965E-5DB9B0F21E0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{813C4E24-75CD-4562-A73A-4794FC891A25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{813C4E24-75CD-4562-A73A-4794FC891A25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{813C4E24-75CD-4562-A73A-4794FC891A25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{813C4E24-75CD-4562-A73A-4794FC891A25}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79BA5D5C-FFE7-4906-BD56-208F450EB754}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79BA5D5C-FFE7-4906-BD56-208F450EB754}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79BA5D5C-FFE7-4906-BD56-208F450EB754}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{79BA5D5C-FFE7-4906-BD56-208F450EB754}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79BA5D5C-FFE7-4906-BD56-208F450EB754}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79BA5D5C-FFE7-4906-BD56-208F450EB754}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3CA5FF95-71C7-414E-A323-E6A325C26AED} = {AD38E879-E2BF-49A7-AABB-E34587D58FEB}
+		{A9C298BE-4FD3-49F2-B802-80CCEA412A30} = {AD38E879-E2BF-49A7-AABB-E34587D58FEB}
+		{85D3002B-90A4-483C-965E-5DB9B0F21E0A} = {AD38E879-E2BF-49A7-AABB-E34587D58FEB}
+		{813C4E24-75CD-4562-A73A-4794FC891A25} = {AD38E879-E2BF-49A7-AABB-E34587D58FEB}
+		{79BA5D5C-FFE7-4906-BD56-208F450EB754} = {AD38E879-E2BF-49A7-AABB-E34587D58FEB}
+	EndGlobalSection
+EndGlobal
