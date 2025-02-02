@@ -8,7 +8,7 @@ interface Props {
 const TaskList = ({ tasks }: Props) => {
     return (
         <div className="task-list">
-            <Link to="/tarefas/adicionar" className="btn-new">
+            <Link to="/tarefas/new" className="btn-new">
                 Nova Tarefa
             </Link>
 

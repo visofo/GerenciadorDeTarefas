@@ -30,9 +30,9 @@ const TaskForm = () => {
     const validate = () => {
         const newErrors: Record<string, string> = {};
         if (!task.titulo?.trim()) {
-            newErrors.titulo = 'Título é obrigatório';
+            newErrors.titulo = 'TÃ­tulo Ã© obrigatÃ³rio';
         } else if (task.titulo.length > 100) {
-            newErrors.titulo = 'Máximo de 100 caracteres';
+            newErrors.titulo = 'MÃ¡ximo de 100 caracteres';
         }
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
@@ -62,7 +62,7 @@ const TaskForm = () => {
             <h2>{id ? 'Editar Tarefa' : 'Nova Tarefa'}</h2>
 
             <div className="form-group">
-                <label>Título *</label>
+                <label>TÃ­tulo *</label>
                 <input
                     type="text"
                     value={task.titulo}
@@ -73,7 +73,7 @@ const TaskForm = () => {
             </div>
 
             <div className="form-group">
-                <label>Descrição</label>
+                <label>DescriÃ§Ã£o</label>
                 <textarea
                     value={task.descricao}
                     onChange={(e) => setTask({ ...task, descricao: e.target.value })}
@@ -88,7 +88,7 @@ const TaskForm = () => {
                 >
                     <option value="Pendente">Pendente</option>
                     <option value="EmProgresso">Em Progresso</option>
-                    <option value="Concluída">Concluída</option>
+                    <option value="Concluï¿½da">ConcluÃ­da</option>
                 </select>
             </div>
 
