@@ -1,11 +1,47 @@
-﻿#root {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 2rem;
-    text-align: center;
+﻿.task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-th, td {
-    padding-left: 1rem;
-    padding-right: 1rem;
+.delete-button {
+    background: #ff4444;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.delete-button:hover {
+    background: #cc0000;
+}
+
+.delete-button:disabled {
+    background: #ff9999;
+    cursor: not-allowed;
+}
+
+.status {
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+}
+
+.status-pendente { background: #ffd700; }
+.status-emprogresso { background: #87cefa; }
+.status-concluída { background: #90ee90; }
+
+.error-message {
+    color: #ff4444;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background: #ffeaea;
+    border-radius: 4px;
 }

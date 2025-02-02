@@ -19,48 +19,69 @@ public class TarefasController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Tarefa>>> GetAllTarefas()
     {
-        var tarefas = await _tarefaService.GetAllTarefasAsync();
+        var tarefas = await _tarefaService.ObterTodas();
         return Ok(tarefas);
     }
 
     [HttpGet("status/{status}")]
     public async Task<ActionResult<IEnumerable<Tarefa>>> GetTarefasByStatus(StatusTarefa status)
     {
-        var tarefas = await _tarefaService.GetTarefasByStatusAsync(status);
+        var tarefas = await _tarefaService.ObterTarefasPorStatus(status);
         return Ok(tarefas);
     }
 
     [HttpGet("{id}")]
     public async Task<ActionResult<Tarefa>> GetTarefaById(int id)
     {
-        var tarefa = await _tarefaService.GetTarefaByIdAsync(id);
-        if (tarefa == null) return NotFound();
-        return Ok(tarefa);
+        var tarefa = await _tarefaService.ObterPorId(id);
+        return tarefa != null ? Ok(tarefa) : NotFound();
     }
 
     [HttpPost]
     public async Task<IActionResult> CreateTarefa(Tarefa tarefa)
     {
-        await _tarefaService.CreateTarefaAsync(tarefa);
-        return CreatedAtAction(nameof(GetTarefaById), new { id = tarefa.Id }, tarefa);
+        try
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            await _tarefaService.Adicionar(tarefa);
+            return CreatedAtAction(nameof(GetTarefaById), new { id = tarefa.Id }, tarefa);
+        }
+        catch (ArgumentException ex)
+        {
+            return BadRequest(new { message = ex.Message });
+        }
     }
 
     [HttpPut("{id}")]
     public async Task<IActionResult> UpdateTarefa(int id, Tarefa tarefa)
     {
-        if (id != tarefa.Id)
+        try
         {
-            return BadRequest();
-        }
+            if (id != tarefa.Id)
+                return BadRequest(new { message = "ID da tarefa inválido" });
 
-        await _tarefaService.UpdateTarefaAsync(tarefa);
-        return NoContent();
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            await _tarefaService.Atualizar(tarefa);
+            return NoContent();
+        }
+        catch (ArgumentException ex)
+        {
+            return BadRequest(new { message = ex.Message });
+        }
+        catch (KeyNotFoundException)
+        {
+            return NotFound();
+        }
     }
 
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteTarefa(int id)
     {
-        await _tarefaService.DeleteTarefaAsync(id);
+        await _tarefaService.Remover(id);
         return NoContent();
     }
 }
