@@ -30,13 +30,28 @@ builder.Services.AddSwaggerGen(c =>
     c.SchemaFilter<SwaggerSchemaExampleFilter>();
 });
 
+// Adicione serviços ao contêiner.
+builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
+// Configuração do CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowSpecificOrigin",
+        builder => builder
+            .WithOrigins("https://localhost:5173") // Adicione a origem permitida aqui
+            .AllowAnyHeader()
+            .AllowAnyMethod());
+});
 
 // Add database context and repository
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddScoped<ITarefaRepository, TarefaRepository>();
 builder.Services.AddScoped<ITarefaService, TarefaService>();
+
+
 
 var app = builder.Build();
 
@@ -51,6 +66,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseAuthorization();
+
+// Use o CORS
+app.UseCors("AllowSpecificOrigin");
 
 app.MapControllers();
 
