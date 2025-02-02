@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import TaskList from '../components/TaskList';
 import TaskFilter from '../components/TaskFilter';
-import { getStatusByName, Task, TaskStatus, TaskStatusEnumMap } from '../types/task';
+import { Task, TaskStatus, TaskStatusEnumMap } from '../types/task';
 import api from '../services/api';
 
 const HomePage = () => {
@@ -16,7 +16,7 @@ const HomePage = () => {
                 const response = await api.get('/tarefas');
                 setTasks(response.data);
             } catch (err) {
-                setError('Erro ao carregar tarefas');
+                setError('Erro ao carregar tarefas' + err);
             } finally {
                 setLoading(false);
             }

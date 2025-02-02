@@ -7,16 +7,11 @@ This is a C# .NET API for managing tasks, along with a React frontend.
 1.  **Install .NET SDK 8.0:** [https://dotnet.microsoft.com/download/dotnet/8.0](https://dotnet.microsoft.com/download/dotnet/8.0)
 2.  **Install SQL Server:** You can use either:
     *   **SQL Server 2022 Developer:** [https://www.microsoft.com/sql-server/sql-server-downloads](https://www.microsoft.com/sql-server/sql-server-downloads)
-    *   **Docker:** Install Docker and run the `docker-compose.yml` file from the root directory:
 
-        ```bash
-        docker-compose up -d
-        ```
-3.  **Configure the Connection String:** Make sure the `appsettings.json` in `GerenciadorDeTarefas.API` has the correct connection string for your SQL Server instance.
-4.  **Apply Migrations:**
+3.  **Configurar a Connection String:** Certifique-se de que o `appsettings.json` em `GerenciadorDeTarefas.API` tenha a string de conexão correta para sua instância do SQL Server.
+4.  **Aplicar Migrations:**
     ```bash
     cd src/GerenciadorDeTarefas.API
-    dotnet ef migrations add InitialCreate --project ../GerenciadorDeTarefas.Infrastructure
     dotnet ef database update --project ../GerenciadorDeTarefas.Infrastructure
     ```
 5.  **Run the API:**
