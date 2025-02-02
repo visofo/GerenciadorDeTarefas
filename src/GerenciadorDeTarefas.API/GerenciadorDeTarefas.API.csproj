@@ -4,8 +4,8 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <!-- <SpaRoot>..\gerenciadordetarefas.web</SpaRoot>
-    <SpaProxyLaunchCommand>npm run dev</SpaProxyLaunchCommand> -->
+     <SpaRoot>..\gerenciadordetarefas.web</SpaRoot>
+    <SpaProxyLaunchCommand>npm run dev</SpaProxyLaunchCommand> 
     <SpaProxyServerUrl>https://localhost:52519</SpaProxyServerUrl>
   </PropertyGroup>
 

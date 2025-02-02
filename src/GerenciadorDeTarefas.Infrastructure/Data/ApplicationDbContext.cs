@@ -17,4 +17,9 @@ public class ApplicationDbContext : DbContext
             entity.Property(e => e.DataCriacao).HasDefaultValueSql("GETDATE()");
         });
     }
+
+    //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    //{
+    //    optionsBuilder.UseSqlServer("Server=localhost\\sqlexpress;Database=GerenciadorDeTarefasDB;User Id=sa;Password=MyStrong@Pass123;TrustServerCertificate=True");
+    //}
 }
