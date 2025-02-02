@@ -19,7 +19,7 @@ const TaskPage = () => {
                     const response = await api.get(`/tarefas/${id}`);
                     setTask(response.data);
                 } catch (err) {
-                    setError('Tarefa não encontrada');
+                    setError('Tarefa nÃ£o encontrada');
                     setTimeout(() => navigate('/'), 2000);
                 } finally {
                     setLoading(false);

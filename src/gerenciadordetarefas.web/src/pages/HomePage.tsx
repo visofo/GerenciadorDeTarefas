@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import TaskList from '../components/TaskList';
 import TaskFilter from '../components/TaskFilter';
-import { Task, TaskStatus } from '../types/task';
+import { getStatusByName, Task, TaskStatus, TaskStatusEnumMap } from '../types/task';
 import api from '../services/api';
 
 const HomePage = () => {
@@ -27,7 +27,7 @@ const HomePage = () => {
 
     const filteredTasks = filter === 'All'
         ? tasks
-        : tasks.filter(task => task.status === filter);
+        : tasks.filter(task => task.status === TaskStatusEnumMap[filter]);
 
     return (
         <div>
@@ -38,7 +38,9 @@ const HomePage = () => {
             ) : error ? (
                 <p className="error">{error}</p>
             ) : (
-                <TaskList tasks={filteredTasks} />
+                <TaskList tasks={filteredTasks} onTaskDeleted={function (id: number): void {
+                            setTasks(tasks.filter(task => task.id !== id));
+                        } } />
             )}
         </div>
     );

@@ -15,7 +15,7 @@ public class Tarefa : IValidatableObject
     public string? Descricao { get; set; }
 
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public DateTime DataCriacao { get; set; } = DateTime.UtcNow;
+    public DateTime DataCriacao { get; set; } = DateTime.Now;
 
     private DateTime? _dataConclusao;
     public DateTime? DataConclusao
@@ -23,9 +23,18 @@ public class Tarefa : IValidatableObject
         get => _dataConclusao;
         set
         {
-            if (value < DataCriacao)
-                throw new ArgumentException("Data de conclusão não pode ser anterior à data de criação");
+            if (value.HasValue)
+            {
+                // Verifica se a data não possui hora, minuto e segundo definidos
+                if (value.Value.TimeOfDay == TimeSpan.Zero)
+                {
+                    // Atualiza o valor de value com a hora atual
+                    value = value.Value.Date.Add(DateTime.Now.TimeOfDay);
+                }
 
+                if (value < DataCriacao)
+                    throw new ArgumentException("Data de conclusão não pode ser anterior à data de criação");
+            }
             _dataConclusao = value;
         }
     }
